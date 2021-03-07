@@ -1,0 +1,11 @@
+.Current {
+  text-align: left;
+  /*flex-flow: column;*/
+  /*flex: 1 auto;*/
+  flex: 2 1 auto;
+
+  display: flex;
+  flex-flow: column wrap;
+
+  border: medium steelblue inset;
+}

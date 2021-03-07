@@ -1,0 +1,15 @@
+.Form {
+  padding: 10px;
+  border-bottom: medium groove steelblue;
+  display: flex;
+}
+
+form {
+}
+
+.pkgUrl {
+  flex:1;
+  display:block;
+  border:none;
+  min-width:0;
+}

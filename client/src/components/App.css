@@ -1,0 +1,23 @@
+.App {
+  /*height: 100%;*/
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  /*flex: 1 0 auto;*/
+  align-items: center;
+
+  background-color: #282c34;
+}
+
+/* Medium screens */
+@media all and (max-width: 1024px) {
+  .Header { width: 100%; }
+  .Footer { width: 100%; }
+}
+
+/* Large screens */
+@media all and (min-width: 1024px) {
+  .Header { width: 1024px; }
+  .Footer { width: 1024px; }
+}

@@ -1,0 +1,37 @@
+.Panel {
+  width: 100%;
+  background-color: lightsteelblue;
+
+  flex: 1 0 auto;
+
+  /*border: 2ex inset #61dafb;*/
+  /*margin: 0 20px 0 20px;*/
+  /*padding: 0 20px 0 20px;*/
+  text-align: center;
+}
+
+.Panel {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* We tell all items to be 100% width, via flex-basis */
+.Panel > * {
+  flex: 1 100%;
+}
+/* Medium screens */
+/*@media all and (min-width: 600px) {*/
+/*  !* We tell both sidebars to share a row *!*/
+/*  .History { flex: 1 auto }*/
+/*  .Current { flex: 2 100px; max-width: available}*/
+/*}*/
+
+/* Large screens */
+@media all and (min-width: 1024px) {
+  .Panel { width: 1024px; }
+  /* We invert order of first sidebar and main
+   * And tell the main element to take twice as much width as the other two sidebars
+   */
+  .History { flex: 1 0 0; order: 1; min-width: 20%}
+  .Current { order: 2;  }
+}

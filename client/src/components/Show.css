@@ -1,0 +1,10 @@
+.Show {
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+  padding: 10px;
+}
+
+.Show>pre {
+  min-width: 0;
+  background-color: snow;
+}
