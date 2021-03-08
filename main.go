@@ -37,14 +37,11 @@ func main() {
     })
     r.Use(corsHandler)
 
-
-
     h := handlers.NewPkgHandler()
     r.Route("/manifest", func(r chi.Router) {
         r.Use(Cors)
         r.Get("/", h.ServeHTTP)
     })
-
     
     fs := http.FileServer(http.Dir(clientDir))
     r.Get("/*", func(w http.ResponseWriter, r *http.Request) {
