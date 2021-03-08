@@ -8,7 +8,7 @@ function Current(props) {
     <div className="Current">
       <p>To generate manifest data enter the URL, beginning with <q>https://</q>, below then select the hash type and click Submit.</p>
       <RequestForm makeRequest={props.makeRequest}/>
-      <Show manifest={props.manifest}/>
+      <Show manifest={props.manifest} loading={props.loading}/>
     </div>
   );
 }

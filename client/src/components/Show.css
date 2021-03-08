@@ -8,3 +8,13 @@
   min-width: 0;
   background-color: snow;
 }
+
+.Loading {
+  flex: 1 0 auto;
+  flex-flow: row wrap;
+
+  font-size: x-large;
+  align-content: center;
+  text-align: center;
+  padding-top: 50px;
+}

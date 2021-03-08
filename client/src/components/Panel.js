@@ -6,6 +6,8 @@ import Current from "./Current";
 
 const _ = require('lodash')
 
+const serverAddr = (process.env.NODE_ENV === "development") ? 'http://localhost:8080/manifest' : window.origin + "/manifest"
+
 export default function Panel() {
   const key = 'manifests'
   const [manifests, setManifests] = useState(() => {
@@ -14,6 +16,7 @@ export default function Panel() {
   });
 
   const [manifest, setManifest] = useState(null);
+  const [loading, setLoading] = useState(false)
 
   // Load items from local storage.
   useEffect(() => {
@@ -24,13 +27,9 @@ export default function Panel() {
 
   // Used to retrieve manifest from the server.
   const getManifest = async (data) => {
+    setLoading(true)
+    setManifest({})
     console.log(`GET ${data.pkgUrl} with hash type of ${data.hashType}`)
-
-    // Used for local testing
-    // const serverAddr = 'http://localhost:8080/manifest'
-
-    // Used for production build
-    const serverAddr = window.origin + "/manifest"
 
     const url = new URL(serverAddr)
     const params = {
@@ -48,6 +47,7 @@ export default function Panel() {
       console.log('RESPONSE', res)
       setManifest(res)
       if (!haveManifest(res)) setManifests([res, ...manifests])
+      setLoading(false)
     })
   }
 
@@ -57,7 +57,7 @@ export default function Panel() {
 
   return (
     <div className="Panel">
-      <Current manifest={manifest} makeRequest={getManifest}/>
+      <Current manifest={manifest} loading={loading} makeRequest={getManifest}/>
       <History manifests={manifests} showManifest={showManifest}/>
     </div>
   );
