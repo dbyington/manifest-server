@@ -6,7 +6,7 @@ import Current from "./Current";
 
 const _ = require('lodash')
 
-const serverAddr = (process.env.NODE_ENV === "development") ? 'http://localhost:8080/manifest' : window.origin + "/manifest"
+const serverAddr = (process.env.NODE_ENV === "production") ? window.origin + "/manifest" : 'http://localhost:8080/manifest'
 
 export default function Panel() {
   const key = 'manifests'
